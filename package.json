@@ -1,0 +1,19 @@
+{
+  "name": "bdd-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js",
+    "single":"node single.js",
+    "thread":"node thread.js",
+    "process":"node process.js",
+    "sample_fork":"node sample_fork.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webworker-threads": "^0.7.1"
+  }
+}
