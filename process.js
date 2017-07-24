@@ -23,6 +23,7 @@ function main(){
 				finalResult = collectResult(finalResult,result)
 				if(doneCount == cpuLength){
 					console.timeEnd("Execution time");
+					// console.log(finalResult.word_cloud)
 				}
 			})	
 			instance.send(realList)

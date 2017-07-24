@@ -1,9 +1,20 @@
+var underscore = require("underscore")
 function _collect(result,data){
 	for(var i in data){
+		var isArray = underscore.isArray(data)
 		if(!result[i]){
-			result[i] = 0
+			if(isArray){
+				// result[i] = []	
+			} else {
+				result[i] = 0
+			}			
 		}
-		result[i] += data[i]
+		if(isArray){
+			result = result.concat(data[i])
+		} else {
+			result[i] += data[i]
+		}
+		
 	}
 	return result;
 }
@@ -56,8 +67,16 @@ function aggregateData(list){
 
 function collectResult(result,data){
 	for(var key in data){
-		var member = data[key]
-		if(!result[key])result[key] = {}
+		var member = data[key]		
+		if(!result[key]){
+			if(underscore.isArray(member)){
+				result[key] = []
+			} else {
+				result[key] = {}
+			}
+			
+		}
+		// console.log(key, member)
 		result[key] = _collect(result[key],member)		
 	}
 	return result;
